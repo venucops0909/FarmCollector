@@ -1,0 +1,21 @@
+application:
+  name: farm-collector
+server:
+  port : 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS FarmCollector;
+    driverClassName: org.h2.Driver
+    username: farm
+    password: farm
+    schema: classpath:data.sql
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        default_schema: FarmCollector
+  h2:
+    console:
+      enabled: true
